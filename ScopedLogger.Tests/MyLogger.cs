@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ScopedLogger.Tests;
 
-internal record MyLogMessage(string Message, object? State)
+internal record MyLogMessage(string Message, object? ScopeState)
 {
     
 }
@@ -30,11 +30,12 @@ internal class MyLogger : ILogger
     }
     
     private readonly MyLogProvider _logProvider;
+    public object? ScopeState { get; set; }
     
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
         var formatted = formatter(state, exception);
-        _logProvider.LogMessages.Add(new MyLogMessage(formatted, state));
+        _logProvider.LogMessages.Add(new MyLogMessage(formatted, ScopeState));
     }
 
     public bool IsEnabled(LogLevel logLevel)
@@ -44,14 +45,22 @@ internal class MyLogger : ILogger
 
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull
     {
-        return new MyScope();
+        ScopeState = state;
+        return new MyScope(this);
     }
 }
 
 internal class MyScope : IDisposable
 {
+    public MyScope(MyLogger logger)
+    {
+        _logger = logger;
+    }
+    
+    private readonly MyLogger _logger;
+    
     public void Dispose()
     {
-        
+        _logger.ScopeState = null;
     }
 }

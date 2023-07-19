@@ -15,7 +15,10 @@ public class ScopedLoggerTests
         var loggerWithProperty = logger.ForContext("MyProperty", "MyValue");
         loggerWithProperty.LogInformation("Hello World");
 
-        logProvider.LogMessages.Should().ContainSingle();
+        var logEvent = logProvider.LogMessages.Should().ContainSingle().Subject;
+        logEvent.Message.Should().Be("Hello World");
+        logEvent.ScopeState.Should().BeAssignableTo<IReadOnlyDictionary<string, object>>()
+            .Which.Should().ContainKey("MyProperty").WhoseValue.Should().Be("MyValue");
     }
 }
 
