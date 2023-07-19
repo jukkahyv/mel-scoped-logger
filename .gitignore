@@ -1,3 +1,6 @@
 .idea
+*.user
 /ScopedLogger/obj/
 /ScopedLogger/bin/
+/ScopedLogger.Tests/obj/
+/ScopedLogger.Tests/bin/

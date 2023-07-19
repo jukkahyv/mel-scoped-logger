@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScopedLogger", "ScopedLogger\ScopedLogger.csproj", "{6E6C5273-587A-4616-A73F-19BCB65A08AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScopedLogger.Tests", "ScopedLogger.Tests\ScopedLogger.Tests.csproj", "{E888BF8B-FA07-48C9-AE19-E288E5C9F913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{6E6C5273-587A-4616-A73F-19BCB65A08AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E6C5273-587A-4616-A73F-19BCB65A08AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E6C5273-587A-4616-A73F-19BCB65A08AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E888BF8B-FA07-48C9-AE19-E288E5C9F913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E888BF8B-FA07-48C9-AE19-E288E5C9F913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E888BF8B-FA07-48C9-AE19-E288E5C9F913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E888BF8B-FA07-48C9-AE19-E288E5C9F913}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
