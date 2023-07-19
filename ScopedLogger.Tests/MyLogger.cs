@@ -2,24 +2,18 @@ using Microsoft.Extensions.Logging;
 
 namespace ScopedLogger.Tests;
 
-internal record MyLogMessage(string Message, object? ScopeState)
-{
-    
-}
+internal record MyLogMessage(string Message, object? ScopeState);
 
 internal class MyLogProvider : ILoggerProvider
 {
-    public List<MyLogMessage> LogMessages = new(); 
+    public readonly List<MyLogMessage> LogMessages = new(); 
     
     public void Dispose()
     {
         
     }
 
-    public ILogger CreateLogger(string categoryName)
-    {
-        return new MyLogger(this);
-    }
+    public ILogger CreateLogger(string categoryName) => new MyLogger(this);
 }
 
 internal class MyLogger : ILogger
@@ -38,12 +32,9 @@ internal class MyLogger : ILogger
         _logProvider.LogMessages.Add(new MyLogMessage(formatted, ScopeState));
     }
 
-    public bool IsEnabled(LogLevel logLevel)
-    {
-        return true;
-    }
+    public bool IsEnabled(LogLevel logLevel) => true;
 
-    public IDisposable? BeginScope<TState>(TState state) where TState : notnull
+    public IDisposable BeginScope<TState>(TState state) where TState : notnull
     {
         ScopeState = state;
         return new MyScope(this);
