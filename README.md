@@ -13,5 +13,5 @@ PM> Install-Package Rapal.ScopedLogger
 
 ```csharp
 ILogger logger = _log.ForContext("MyProp", "MyValue");
-logger.LogInformation("Hello world!");
+logger.LogInformation("Hello world!"); // MyProp=MyValue included in scope
 ```
