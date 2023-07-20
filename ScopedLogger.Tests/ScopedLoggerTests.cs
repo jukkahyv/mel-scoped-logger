@@ -12,13 +12,14 @@ public class ScopedLoggerTests
     {
         var logger = GetLogger();
         
-        ILogger loggerWithProperty = logger.ForContext("MyProperty", "MyValue");
+        ILogger loggerWithProperty = logger.ForContext("MyProperty", "MyValue").ForContext("MyProperty2", "MyValue2");
         loggerWithProperty.LogInformation("Hello World");
 
         var logEvent = _logProvider.LogMessages.Should().ContainSingle().Subject;
         logEvent.Message.Should().Be("Hello World");
-        logEvent.ScopeState.Should().BeAssignableTo<IReadOnlyDictionary<string, object>>()
-            .Which.Should().ContainKey("MyProperty").WhoseValue.Should().Be("MyValue");
+        var scopeState = logEvent.ScopeState.Should().BeAssignableTo<IReadOnlyDictionary<string, object>>().Subject;
+        scopeState.Should().ContainKey("MyProperty").WhoseValue.Should().Be("MyValue");
+        scopeState.Should().ContainKey("MyProperty2").WhoseValue.Should().Be("MyValue2");
     }
 
     private ILogger GetLogger() => new LoggerFactory(new[] { _logProvider })
