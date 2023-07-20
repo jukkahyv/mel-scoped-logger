@@ -8,10 +8,7 @@ internal class MyLogProvider : ILoggerProvider
 {
     public readonly List<MyLogMessage> LogMessages = new(); 
     
-    public void Dispose()
-    {
-        
-    }
+    public void Dispose() { }
 
     public ILogger CreateLogger(string categoryName) => new MyLogger(this);
 }
@@ -24,6 +21,7 @@ internal class MyLogger : ILogger
     }
     
     private readonly MyLogProvider _logProvider;
+    
     public object? ScopeState { get; set; }
     
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
