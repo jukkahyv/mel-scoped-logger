@@ -1,6 +1,7 @@
 # Microsoft.Extensions.Logging scoped logger
 
-Extends MEL ILogger with context/scope chaining features similar to Serilog.
+Extends [MEL ILogger](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging) with context/scope chaining 
+features similar to [Serilog](https://github.com/serilog/serilog/wiki/Writing-Log-Events#correlation).
 
 ## Installation
 
@@ -11,6 +12,6 @@ PM> Install-Package Rapal.ScopedLogger
 ## Usage
 
 ```csharp
-var logger = _log.ForContext("MyProp", "MyValue");
+ILogger logger = _log.ForContext("MyProp", "MyValue");
 logger.LogInformation("Hello world!");
 ```
