@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ScopedLogger\ScopedLogger.csproj" />
+      <ProjectReference Include="..\ScopedLogger\Rapal.ScopedLogger.csproj" />
     </ItemGroup>
 
 </Project>

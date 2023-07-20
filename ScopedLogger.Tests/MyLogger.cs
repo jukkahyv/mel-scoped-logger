@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace ScopedLogger.Tests;
+namespace Rapal.ScopedLogger.Tests;
 
 internal record MyLogMessage(string Message, object? ScopeState);
 

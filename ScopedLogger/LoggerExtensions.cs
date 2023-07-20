@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace ScopedLogger;
+namespace Rapal.ScopedLogger;
 
 /// <summary>
 /// Extensions for <see cref="ILogger"/>.

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace ScopedLogger;
+namespace Rapal.ScopedLogger;
 
 /// <summary>
 /// Extends MEL <see cref="ILogger"/> with context/scope chaining features similar to Serilog.

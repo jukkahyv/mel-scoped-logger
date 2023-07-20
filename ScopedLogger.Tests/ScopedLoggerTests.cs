@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 
-namespace ScopedLogger.Tests;
+namespace Rapal.ScopedLogger.Tests;
 
 public class ScopedLoggerTests
 {
