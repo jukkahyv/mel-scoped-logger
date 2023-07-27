@@ -52,8 +52,11 @@ internal class ScopedLogger : IScopedLogger
 
     public IScopedLogger ForContext(string key, object value)
     {
-        return new ScopedLogger(_parent,
-            new Dictionary<string, object>(_state.Append(KeyValuePair.Create(key, value))));
+        var newState = new Dictionary<string, object>(_state)
+        {
+            [key] = value
+        };
+        return new ScopedLogger(_parent, newState);
     }
     
 }

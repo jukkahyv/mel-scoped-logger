@@ -10,8 +10,11 @@
         <RepositoryUrl>https://github.com/jukkahyv/mel-scoped-logger</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Description>Extends MEL ILogger with context/scope chaining features similar to Serilog.</Description>
-        <Version>0.9.1-beta</Version>
+        <Version>0.10.0</Version>
         <PackageId>Rapal.ScopedLogger</PackageId>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>logging</PackageTags>
+        <PackageReleaseNotes>Support replacing variables</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
